@@ -1,28 +1,15 @@
 package com.techelevator.view;
 
+import java.math.BigDecimal;
+
 public class Drink extends Food{
-    private String slotID;
-    private String foodItem;
+    private int quantity;
 
-    public Drink(String name, double price, String foodItem, String slotID) {
-        super(name, price);
-        this.slotID = slotID;
-        this.foodItem = foodItem;
+    public Drink(String name, String consumables, BigDecimal price) {
+        super(name, consumables, price);
+        this.quantity = 7;
     }
-
-    public String getSlotID() {
-        return slotID;
+    public void message() {
+        System.out.println("Drinky, Drinky, Slurp Slurp!");
     }
-
-//    public void setSlotID(String slotID) {
-//        this.slotID = slotID;
-//    }
-
-    public String getFoodItem() {
-        return foodItem;
-    }
-
-//    public void setFoodItem(String foodItem) {
-//        this.foodItem = foodItem;
-//    }
 }

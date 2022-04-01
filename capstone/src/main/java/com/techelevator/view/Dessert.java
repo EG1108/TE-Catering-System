@@ -1,8 +1,16 @@
 package com.techelevator.view;
 
-public class Dessert extends Food{
+import java.math.BigDecimal;
 
-    public Dessert(String name, double price) {
-        super(name, price);
+public class Dessert extends Food{
+    private int quantity;
+
+    public Dessert(String name, String consumables, BigDecimal price, int quantity) {
+        super(name, consumables, price);
+        this.quantity = quantity;
+    }
+
+    public void message() {
+        System.out.println("Sugar, Sugar, so Sweet!");
     }
 }

@@ -1,8 +1,15 @@
 package com.techelevator.view;
 
-public class Sandwich extends Food{
+import java.math.BigDecimal;
 
-    public Sandwich(String name, double price) {
-        super(name, price);
+public class Sandwich extends Food{
+    private int quantity;
+
+    public Sandwich(String name, String consumables, BigDecimal price, int quantity) {
+        super(name, consumables, price);
+        this.quantity = quantity;
+    }
+    public void message() {
+        System.out.println("Sandwich So Delicious, Yum!");
     }
 }
