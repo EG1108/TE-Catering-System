@@ -12,4 +12,12 @@ public class Drink extends Food{
     public void message() {
         System.out.println("Drinky, Drinky, Slurp Slurp!");
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }

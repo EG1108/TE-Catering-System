@@ -72,21 +72,56 @@ public class Menu {
 
                     System.out.println("Enter slot identifier for wanted item: ");
                     String slotScanner = scanner.nextLine();
-                    for (int i = 0; i < food.size(); i++) {
+//                    for (int i = 0; i < food.size(); i++) {
                         if (food.containsKey(slotScanner)) {
+
                             if(food.get(slotScanner).getConsumables().equals("Drink")) {
                                 Drink drink = new Drink(food.get(slotScanner).getName(), food.get(slotScanner).getConsumables(), food.get(slotScanner).getPrice());
-                                System.out.println("Drinky, Drinky, Slurp Slurp!");
-                                money.subtractMoney(food.get(slotScanner).getPrice());
-                                break;
-                            } else {
-//                                System.out.println("this is not a drink!");
+                                if(money.getBalance().compareTo(drink.getPrice()) >= 0) {
+                                    money.subtractMoney(drink.getPrice());
+                                    drink.message();
+                                    drink.setQuantity(drink.getQuantity() - 1);
+                                    System.out.println(drink.getQuantity());
+                                } else {
+                                    money.subtractMoney(drink.getPrice());
+                                }
+//                                break;
+
+                            } else if(food.get(slotScanner).getConsumables().equals("Sandwich")) {
+                                Sandwich sandwich = new Sandwich(food.get(slotScanner).getName(), food.get(slotScanner).getConsumables(), food.get(slotScanner).getPrice());
+                                if(money.getBalance().compareTo(sandwich.getPrice()) >= 0) {
+                                    money.subtractMoney(sandwich.getPrice());
+                                    sandwich.message();
+                                } else {
+                                    money.subtractMoney(sandwich.getPrice());
+                                }
+//                                break;
+
+                            } else if(food.get(slotScanner).getConsumables().equals("Dessert")) {
+                                Dessert dessert = new Dessert(food.get(slotScanner).getName(), food.get(slotScanner).getConsumables(), food.get(slotScanner).getPrice());
+                                if(money.getBalance().compareTo(dessert.getPrice()) >= 0) {
+                                    money.subtractMoney(dessert.getPrice());
+                                    dessert.message();
+                                } else {
+                                    money.subtractMoney(dessert.getPrice());
+                                }
+//                                break;
+
+                            } else if(food.get(slotScanner).getConsumables().equals("Munchy")) {
+                                Munchy munchy = new Munchy(food.get(slotScanner).getName(), food.get(slotScanner).getConsumables(), food.get(slotScanner).getPrice());
+                                if(money.getBalance().compareTo(munchy.getPrice()) >= 0) {
+                                    money.subtractMoney(munchy.getPrice());
+                                    munchy.message();
+                                } else {
+                                    money.subtractMoney(munchy.getPrice());
+                                }
+//                                break;
                             }
-//                            money.subtractMoney(itemPrice);
+
                         } else {
 //                            System.out.println("This item is not in stock ");
                         }
-                    }
+//                    }
                     continue;
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();

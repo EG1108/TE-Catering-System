@@ -5,9 +5,9 @@ import java.math.BigDecimal;
 public class Sandwich extends Food{
     private int quantity;
 
-    public Sandwich(String name, String consumables, BigDecimal price, int quantity) {
+    public Sandwich(String name, String consumables, BigDecimal price) {
         super(name, consumables, price);
-        this.quantity = quantity;
+        this.quantity = 7;
     }
     public void message() {
         System.out.println("Sandwich So Delicious, Yum!");
