@@ -22,6 +22,10 @@ public class  Food {
         this.quantity = quantity;
     }
 
+    public Food() {
+        this.quantity = 7;
+    }
+
     public String getName() {
         return name;
     }
