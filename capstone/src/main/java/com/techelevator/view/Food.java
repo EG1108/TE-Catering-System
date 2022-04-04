@@ -30,24 +30,12 @@ public class  Food {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getConsumables() {
         return consumables;
     }
 
-    public void setConsumables(String consumables) {
-        this.consumables = consumables;
-    }
-
     public BigDecimal getPrice() {
         return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
     }
 
     public int getQuantity() {

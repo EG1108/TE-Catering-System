@@ -10,14 +10,7 @@ public class Drink extends Food{
         this.quantity = 7;
     }
     public void message() {
-        System.out.println("Drinky, Drinky, Slurp Slurp!");
+        System.out.println("Drinky, Drinky, Slurp Slurp!\n");
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 }

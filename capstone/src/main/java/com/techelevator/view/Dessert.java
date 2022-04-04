@@ -11,6 +11,6 @@ public class Dessert extends Food{
     }
 
     public void message() {
-        System.out.println("Sugar, Sugar, so Sweet!");
+        System.out.println("Sugar, Sugar, so Sweet!\n");
     }
 }

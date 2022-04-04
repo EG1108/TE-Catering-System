@@ -11,6 +11,6 @@ public class Munchy extends Food{
     }
 
     public void message() {
-        System.out.println("Munchy, Munchy, so Good!");
+        System.out.println("Munchy, Munchy, so Good!\n");
     }
 }

@@ -10,6 +10,6 @@ public class Sandwich extends Food{
         this.quantity = 7;
     }
     public void message() {
-        System.out.println("Sandwich So Delicious, Yum!");
+        System.out.println("Sandwich So Delicious, Yum!\n");
     }
 }

@@ -32,7 +32,7 @@ public class Menu {
                     food.put(key, currentFood);
                 }
                 for (Map.Entry<String, Food> entry : food.entrySet()) {
-                    String values = entry.getValue().getName() + ", " + entry.getValue().getConsumables() + ", x" + entry.getValue().getQuantity();
+                    String values = entry.getValue().getName() + ", " + entry.getValue().getConsumables() + ", $" + entry.getValue().getPrice() + ", x" + entry.getValue().getQuantity();
                     System.out.println(entry.getKey() + ", " + values);
                 }
 
@@ -42,7 +42,7 @@ public class Menu {
                         String values = entry.getValue().getName() + ", " + entry.getValue().getConsumables() + ", OUT OF STOCK!";
                         System.out.println(entry.getKey() + ", " + values);
                     } else {
-                        String values = entry.getValue().getName() + ", " + entry.getValue().getConsumables() + ", x" + entry.getValue().getQuantity();
+                        String values = entry.getValue().getName() + ", " + entry.getValue().getConsumables() + ", $" + entry.getValue().getPrice() + ", x" + entry.getValue().getQuantity();
                         System.out.println(entry.getKey() + ", " + values);
 
                     }
@@ -83,7 +83,7 @@ public class Menu {
             System.out.println("(M)Feed Money \n(S)Select Item\n(F)Finish Transaction\n\nCurrent Money Provided: " + money.getBalance());
             String choices = scanner.nextLine();
             if (choices.equalsIgnoreCase("M")) {
-                System.out.println("Enter money in whole dollar amount: ");
+                System.out.println("Enter money in whole dollar amount(1, 5, 10, 20): ");
                 String amountDeposited = scanner.nextLine();
                 if (amountDeposited.contains(".")) {
                     System.out.println("Please enter a whole number!");
@@ -120,7 +120,6 @@ public class Menu {
 
                             Food newFood = food.get(slotScanner);
                             newFood.setQuantity(newFood.getQuantity() - 1);
-                            System.out.println(newFood.getQuantity());
 
                         } else {
                             System.out.println("You don't have enough money.\n");
@@ -130,7 +129,7 @@ public class Menu {
 
                         Sandwich sandwich = new Sandwich(name, consumable, price);
                         if (money.getBalance().compareTo(sandwich.getPrice()) >= 0 && food.get(slotScanner).getQuantity() > 0) {
-                            fileWriter(name, money.getBalance(), money.subtractMoney(sandwich.getPrice()));
+                            fileWriter(name + " " + slotScanner, money.getBalance(), money.subtractMoney(sandwich.getPrice()));
                             sandwich.message();
                             Food newFood = food.get(slotScanner);
                             newFood.setQuantity(newFood.getQuantity() - 1);
@@ -144,7 +143,7 @@ public class Menu {
                         if (food.get(slotScanner).getQuantity() <= 0) {
                             System.out.println("This item is out of stock!\n");
                         } else if (money.getBalance().compareTo(dessert.getPrice()) >= 0) {
-                            fileWriter(name, money.getBalance(), money.subtractMoney(dessert.getPrice()));
+                            fileWriter(name + " " + slotScanner, money.getBalance(), money.subtractMoney(dessert.getPrice()));
                             dessert.message();
                             Food newFood = food.get(slotScanner);
 
@@ -157,7 +156,7 @@ public class Menu {
                         Munchy munchy = new Munchy(name, consumable, price);
 
                         if (money.getBalance().compareTo(munchy.getPrice()) >= 0 && food.get(slotScanner).getQuantity() > 0) {
-                            fileWriter(name, money.getBalance(), money.subtractMoney(munchy.getPrice()));
+                            fileWriter(name + " " + slotScanner, money.getBalance(), money.subtractMoney(munchy.getPrice()));
                             munchy.message();
                             Food newFood = food.get(slotScanner);
                             newFood.setQuantity(newFood.getQuantity() - 1);
